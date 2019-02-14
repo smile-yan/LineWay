@@ -15,7 +15,7 @@ windows系统桌面小游戏
 可执行文件下载：[https://github.com/smile-yan/LineWay/raw/master/LineWay.7z](https://github.com/smile-yan/LineWay/raw/master/LineWay.7z)
 
 ### 3. 感谢
-感谢EasyX的慢羊羊村长的指导！非常感谢！
+感谢慢羊羊村长的指导！非常感谢！
 
 慢羊羊村长：[https://www.codeabc.cn/yangw/](https://www.codeabc.cn/yangw/)
 
