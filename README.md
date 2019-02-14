@@ -15,3 +15,9 @@ windows系统桌面小游戏
 感谢EasyX的慢羊羊村长的指导！非常感谢！
 慢羊羊村长：[https://www.codeabc.cn/yangw/](https://www.codeabc.cn/yangw/)
 EasyX官网：[https://www.easyx.cn/](https://www.easyx.cn/)
+
+### 4. 欢迎交流
+QQ: 837764072 
+
+GitHub: [https://github.com/smile-yan](https://github.com/smile-yan)
+
