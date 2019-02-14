@@ -15,10 +15,3 @@ windows系统桌面小游戏
 感谢EasyX的慢羊羊村长的指导！非常感谢！
 慢羊羊村长：[https://www.codeabc.cn/yangw/](https://www.codeabc.cn/yangw/)
 EasyX官网：[https://www.easyx.cn/](https://www.easyx.cn/)
-
-#### 关于作者
-Smileyan
-github: [https://github.com/smile-yan/](https://github.com/smile-yan/)
-个人主页: [https://smileyan.cn](https://smileyan.cn)
-
-
