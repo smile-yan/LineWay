@@ -9,7 +9,10 @@ windows系统桌面小游戏
 
 ### 2. 环境说明
 运行环境： windows系统
+
 编写环境： Vitual C++ 6.0 + EasyX(20480718)
+
+可执行文件下载：[https://github.com/smile-yan/LineWay/raw/master/LineWay.7z](https://github.com/smile-yan/LineWay/raw/master/LineWay.7z)
 
 ### 3. 感谢
 感谢EasyX的慢羊羊村长的指导！非常感谢！
