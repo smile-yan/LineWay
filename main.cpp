@@ -1,35 +1,35 @@
 //////////////////////
-// ³ÌĞòÃû³Æ£ºÒ»±Ê»­ ÓÎÏ·
-// ×÷  Õß£º Smileyan<837764072@qq.com>
-// ¿ª·¢»·¾³£ºVC6.0 EasyX(2018.07.27)
-// ×îºóĞŞ¸Ä£º2019-2-14
+// ç¨‹åºåç§°ï¼šä¸€ç¬”ç”» æ¸¸æˆ
+// ä½œ  è€…ï¼š Smileyan<837764072@qq.com>
+// å¼€å‘ç¯å¢ƒï¼šVC6.0 EasyX(2018.07.27)
+// æœ€åä¿®æ”¹ï¼š2019-2-14
 /////////////////////
 #include <graphics.h>
 #include <stdio.h>
 #include <conio.h>
 
-BYTE g_aryMap[7][6];											// ¶şÎ¬Êı×é´æ´¢ÓÎÏ·Ö÷ÒªĞÅÏ¢
-COLORREF color_title = RGB(250,120,100);						// »¶Ó­½çÃæ±êÌâÑÕÉ« 
-COLORREF color_button = RGB(160,225,5);							// °´Å¥ÑÕÉ«
-COLORREF color_bk = RGB(232,232,232);							// ±³¾°ÑÕÉ«
-COLORREF color_circleButton =  RGB(255,170,1);					// Ô²ĞÎ°´Å¥ÑÕÉ«
-COLORREF color_grade_bk = RGB(197,197,197);						// ·ÖÊı±³¾°ÒÔ¼°Ñ¡ÔñµÈ¼¶±³¾°								
-COLORREF color_way = RGB(250,120,100);							// ÒÑ¾­¾­¹ıµÄÂ·¾¶±³¾°
-POINT pt_cir = {245, 400};										// »¶Ó­½çÃæ°´Å¥Î»ÖÃ
-IMAGE g_imgGameItemBlank(65,65);								// Î´¾­¹ıÂ·¾¶±³¾°Í¼Æ¬
-IMAGE g_imgGameItemWay(65,65);									// ¾­¹ıÂ·¾¶±³¾°Í¼Æ¬
-IMAGE g_imgGameItemPlayer(65,65);								// µ±Ç°Â·¾¶±³¾°Í¼Æ¬
-IMAGE g_imgGradeItem(80,80);									// Ñ¡ÔñµÈ¼¶Í¼Æ¬
-IMAGE g_imgGradeLock;											// Î´¼¤»îµÄµÈ¼¶
-short g_iGrade=0;												// Íæ¼ÒµÃ·Ö
-short MAX_GRADE=25;												// ¹Ø¿¨ÊıÄ¿
+BYTE g_aryMap[7][6];									 		// äºŒç»´æ•°ç»„å­˜å‚¨æ¸¸æˆä¸»è¦ä¿¡æ¯
+COLORREF color_title = RGB(250,120,100);						// æ¬¢è¿ç•Œé¢æ ‡é¢˜é¢œè‰² 
+COLORREF color_button = RGB(160,225,5);							// æŒ‰é’®é¢œè‰²
+COLORREF color_bk = RGB(232,232,232);							// èƒŒæ™¯é¢œè‰²
+COLORREF color_circleButton =  RGB(255,170,1);					// åœ†å½¢æŒ‰é’®é¢œè‰²
+COLORREF color_grade_bk = RGB(197,197,197);						// åˆ†æ•°èƒŒæ™¯ä»¥åŠé€‰æ‹©ç­‰çº§èƒŒæ™¯								
+COLORREF color_way = RGB(250,120,100);							// å·²ç»ç»è¿‡çš„è·¯å¾„èƒŒæ™¯
+POINT pt_cir = {245, 400};										// æ¬¢è¿ç•Œé¢æŒ‰é’®ä½ç½®
+IMAGE g_imgGameItemBlank(65,65);								// æœªç»è¿‡è·¯å¾„èƒŒæ™¯å›¾ç‰‡
+IMAGE g_imgGameItemWay(65,65);									// ç»è¿‡è·¯å¾„èƒŒæ™¯å›¾ç‰‡
+IMAGE g_imgGameItemPlayer(65,65);								// å½“å‰è·¯å¾„èƒŒæ™¯å›¾ç‰‡
+IMAGE g_imgGradeItem(80,80);									// é€‰æ‹©ç­‰çº§å›¾ç‰‡
+IMAGE g_imgGradeLock;											// æœªæ¿€æ´»çš„ç­‰çº§
+short g_iGrade=0;												// ç©å®¶å¾—åˆ†
+short MAX_GRADE=25;												// å…³å¡æ•°ç›®
 
 /**
- * Ã¶¾ÙÍ¼ÔªËØ
- * MAP_WALL ²»¿Éµã»÷ÔªËØ
- * MAP_BLANK Î´¾­¹ıÂ·¾¶
- * MAP_WAY ÒÑ¾­¾­¹ıÂ·¾¶ÔªËØ
- * MAP_PLAYER µ±Ç°Î»ÖÃ
+ * æšä¸¾å›¾å…ƒç´ 
+ * MAP_WALL ä¸å¯ç‚¹å‡»å…ƒç´ 
+ * MAP_BLANK æœªç»è¿‡è·¯å¾„
+ * MAP_WAY å·²ç»ç»è¿‡è·¯å¾„å…ƒç´ 
+ * MAP_PLAYER å½“å‰ä½ç½®
  */
 enum MAP_ITEM 
 { 
@@ -39,19 +39,19 @@ enum MAP_ITEM
 	MAP_WAY = 8
 };
 
-void WelcomePaint();											// »æÖÆ»¶Ó­½çÃæ		
-void Welcome();													// »¶Ó­½çÃæµÄµã»÷
-void InitImage();												// ¼ÓÔØÍ¼Æ¬
-void ChooseGradePaint();										// Ñ¡ÔñµÈ¼¶½çÃæ
-int  ChooseGrade();												// Ñ¡ÔñµÈ¼¶
-void GameInit(int grade);										// ³õÊ¼»¯ÓÎÏ·
-void GamePaint();												// »æÖÆÓÎÏ·
-int Game(int grade);											// ÓÎÏ·
-bool MouseInCircle(int rx,int ry,int r,int x, int y);			// ÅĞ¶Ïµã(x,y)ÊÇ·ñÔÚÔ²rÄÚ
-bool JudgeWin();												// ÅĞ¶ÏÊÇ·ñ¹ı¹Ø
-bool JudgeBorder(POINT pt1,POINT pt2);							// ÅĞ¶ÏÁ½µãÊÇ·ñÏàÁÚ
-POINT GetNowPoint();											// »ñµÃÏÖÔÚµÄµã
-POINT GetGird(int x, int y);									// ÅĞ¶Ïµã(x,y)Ëù´¦µÄÍø¸ñ
+void WelcomePaint();											// ç»˜åˆ¶æ¬¢è¿ç•Œé¢		
+void Welcome();													// æ¬¢è¿ç•Œé¢çš„ç‚¹å‡»
+void InitImage();												// åŠ è½½å›¾ç‰‡
+void ChooseGradePaint();										// é€‰æ‹©ç­‰çº§ç•Œé¢
+int  ChooseGrade();												// é€‰æ‹©ç­‰çº§
+void GameInit(int grade);										// åˆå§‹åŒ–æ¸¸æˆ
+void GamePaint();												// ç»˜åˆ¶æ¸¸æˆ
+int Game(int grade);											// æ¸¸æˆ
+bool MouseInCircle(int rx,int ry,int r,int x, int y);			// åˆ¤æ–­ç‚¹(x,y)æ˜¯å¦åœ¨åœ†rå†…
+bool JudgeWin();												// åˆ¤æ–­æ˜¯å¦è¿‡å…³
+bool JudgeBorder(POINT pt1,POINT pt2);							// åˆ¤æ–­ä¸¤ç‚¹æ˜¯å¦ç›¸é‚»
+POINT GetNowPoint();											// è·å¾—ç°åœ¨çš„ç‚¹
+POINT GetGird(int x, int y);									// åˆ¤æ–­ç‚¹(x,y)æ‰€å¤„çš„ç½‘æ ¼
 
 int main()
 {
@@ -60,7 +60,7 @@ int main()
 	InitImage();
 	while(true)
 	{
-		// »¶Ó­½çÃæ
+		// æ¬¢è¿ç•Œé¢
 		WelcomePaint();
 		Welcome();
 	
@@ -68,7 +68,7 @@ int main()
 		while(true) {	
 			ChooseGradePaint();
 			choose = ChooseGrade();
-			// ·µ»ØÉÏÒ»¼¶Ê±µ÷ÓÃ
+			// è¿”å›ä¸Šä¸€çº§æ—¶è°ƒç”¨
 			if(choose < 0)
 			{
 				break;
@@ -76,43 +76,43 @@ int main()
 			GameInit(choose);
 			int game = 1;
 			while(true){
-				// ÓÎÏ··µ»ØÖµ
+				// æ¸¸æˆè¿”å›å€¼
 				int game_result = Game(choose);
 				
-				// ÖØĞÂ¿ªÊ¼
+				// é‡æ–°å¼€å§‹
 				if(game_result == 0)
 				{
 					GameInit(choose);
 				}
-				// ·µ»ØÉÏÒ»¼¶
+				// è¿”å›ä¸Šä¸€çº§
 				else if(game_result<0)
 				{
 					break;
 				}
 				
 				GamePaint();
-				// ÅĞ¶ÏÊÇ·ñÊ¤Àû
+				// åˆ¤æ–­æ˜¯å¦èƒœåˆ©
 				if(JudgeWin())
 				{
-					// ¼Ó·Ö
+					// åŠ åˆ†
 					if(g_iGrade/100 < choose){
 						g_iGrade += 100;
 					}
 					HWND hwnd = GetHWnd();
-					// Í¨¹ØÌáĞÑ
+					// é€šå…³æé†’
 					if(choose>=MAX_GRADE)
 					{
-						MessageBox(hwnd, _T("¹§Ï²ÄãÍ¨¹ıÈ«¹Ø !"), _T("Ñ¯ÎÊ"),  MB_ICONQUESTION) ;
+						MessageBox(hwnd, _T("æ­å–œä½ é€šè¿‡å…¨å…³ !"), _T("è¯¢é—®"),  MB_ICONQUESTION) ;
 						break;
 					}
-					if(MessageBox(hwnd, _T("¹§Ï²ÄãÍ¨¹ı±¾¹Ø£¬ÊÇ·ñ½øÈëÏÂÒ»¹Ø£¿"), _T("Ñ¯ÎÊ"), MB_OKCANCEL | MB_ICONQUESTION) == IDOK)
+					if(MessageBox(hwnd, _T("æ­å–œä½ é€šè¿‡æœ¬å…³ï¼Œæ˜¯å¦è¿›å…¥ä¸‹ä¸€å…³ï¼Ÿ"), _T("è¯¢é—®"), MB_OKCANCEL | MB_ICONQUESTION) == IDOK)
 					{
 						choose++;
 					
 						GameInit(choose);
-						// ±£´æ×ø±êµ½ÅäÖÃÎÄ¼ş
+						// ä¿å­˜åæ ‡åˆ°é…ç½®æ–‡ä»¶
 						TCHAR s[20];
-						_stprintf(s, _T("%d"), g_iGrade);			// vc6 µÄĞ´·¨
+						_stprintf(s, _T("%d"), g_iGrade);			// vc6 çš„å†™æ³•
 						::WritePrivateProfileString(_T("Grade"), _T("grade"), s, _T(".\\game.ini"));
 					}
 				}
@@ -121,30 +121,30 @@ int main()
 		}
 	}
 
-	_getch();              // °´ÈÎÒâ¼ü¼ÌĞø
+	_getch();              // æŒ‰ä»»æ„é”®ç»§ç»­
 	
-    closegraph();          // ¹Ø±Õ»æÍ¼´°¿Ú
+    closegraph();          // å…³é—­ç»˜å›¾çª—å£
 	return 0;
 }
 
 /**
- * ¼ÓÔØÍ¼Æ¬
+ * åŠ è½½å›¾ç‰‡
  */
 void InitImage()
 {
-	// »æÖÆÒÑ¾­¾­¹ıµÄÂ·¾¶
+	// ç»˜åˆ¶å·²ç»ç»è¿‡çš„è·¯å¾„
 	SetWorkingImage(&g_imgGameItemWay);
 	setbkcolor(RGB(252,119,102));
 	cleardevice();
 	SetWorkingImage();
 
-	// »æÖÆ¿Õ°×Î»ÖÃ
+	// ç»˜åˆ¶ç©ºç™½ä½ç½®
 	SetWorkingImage(&g_imgGameItemBlank);
 	setbkcolor(RGB(197,197,197));
 	cleardevice();
 	SetWorkingImage();
 
-	// »æÖÆÒÑ¾­¿ªÆôµÄ¹Ø¿¨
+	// ç»˜åˆ¶å·²ç»å¼€å¯çš„å…³å¡
 	SetWorkingImage(&g_imgGradeItem);
 	setbkcolor(RGB(197,197,197));
 	cleardevice();
@@ -153,39 +153,39 @@ void InitImage()
 	fillroundrect(1,1,79,79,32,32);
 	SetWorkingImage();
 	
-	// ¼ÓÔØÍ¼Æ¬
+	// åŠ è½½å›¾ç‰‡
 	loadimage(&g_imgGameItemPlayer,"./photos/player.gif");
 	loadimage(&g_imgGradeLock,"./photos/lock.gif");
 }
 
 /**
- * »¶Ó­½çÃæ
+ * æ¬¢è¿ç•Œé¢
  */ 
 void WelcomePaint()
 {
 	short i,t;	
 
-	// ÉèÖÃ±³¾°É«
+	// è®¾ç½®èƒŒæ™¯è‰²
 	setbkcolor(color_bk);
 	cleardevice();
 	
-	// ÓÃÓÚ»æÖÆÓÎÏ·Ãû³Æ
+	// ç”¨äºç»˜åˆ¶æ¸¸æˆåç§°
 	RECT r = {50,80,450,160};
 
-	// ÉèÖÃ×Ö´óĞ¡£¬ÇãĞ±¶È£¬´ÖÏ¸£¬ÑÕÉ«£¬±³¾°Í¸Ã÷
+	// è®¾ç½®å­—å¤§å°ï¼Œå€¾æ–œåº¦ï¼Œç²—ç»†ï¼Œé¢œè‰²ï¼ŒèƒŒæ™¯é€æ˜
 	settextstyle(40, 0, _T("verdana"),2,2,FW_HEAVY,true,false,false);
 	settextcolor(color_bk);
 	setbkmode(TRANSPARENT);
 	
-	// ÉèÖÃ±êÌâ
+	// è®¾ç½®æ ‡é¢˜
 	setlinecolor(color_title);
 	setfillcolor(color_title);
 	
-	// »æÖÆÔ²½Ç
+	// ç»˜åˆ¶åœ†è§’
 	fillroundrect(48,80,58,160,20,20);
 	fillroundrect(435,80,445,160,20,20);
 	
-	// »æÖÆ»¶Ó­
+	// ç»˜åˆ¶æ¬¢è¿
 	for(i=55,t=440; i<=245; i+=2,t-=2) 
 	{
 		fillrectangle(i,80,i+2,160);
@@ -196,14 +196,14 @@ void WelcomePaint()
 	
 	setlinecolor(color_button);
 	setfillcolor(color_button);
-	// Ô²ĞÎÀ©Õ¹Ğ§¹û
+	// åœ†å½¢æ‰©å±•æ•ˆæœ
 	for(i=0; i<=6; i++) 
 	{
 		fillcircle(pt_cir.x,pt_cir.y,30+i*5);
 		Sleep(20);
 	}
 
-	// »æÖÆÈı½ÇĞÎ
+	// ç»˜åˆ¶ä¸‰è§’å½¢
 	setlinecolor(color_bk);
 	setfillcolor(color_bk);
 	POINT pts[] = { {230, 400-30}, {230, 400+30}, {280, 400} };
@@ -211,24 +211,24 @@ void WelcomePaint()
 }
 
 /**
- * ½øÈëÓÎÏ·µÄµã»÷
+ * è¿›å…¥æ¸¸æˆçš„ç‚¹å‡»
  */
 void Welcome()
 {
 	short i;
-	// ¼àÌıµã»÷
+	// ç›‘å¬ç‚¹å‡»
 	FlushMouseMsgBuffer();
 	
-	MOUSEMSG m;		// ¶¨ÒåÊó±êÏûÏ¢
+	MOUSEMSG m;		// å®šä¹‰é¼ æ ‡æ¶ˆæ¯
 	while(true)
 	{
-		while (MouseHit())			// µ±ÓĞÊó±êÏûÏ¢µÄÊ±ºòÖ´ĞĞ
+		while (MouseHit())			// å½“æœ‰é¼ æ ‡æ¶ˆæ¯çš„æ—¶å€™æ‰§è¡Œ
 		{
 			m = GetMouseMsg();
 			switch(m.uMsg)
 			{
 			case WM_LBUTTONDOWN:
-				// µã»÷¿ªÊ¼£¬Ôò»æÖÆµã»÷Ğ§¹û
+				// ç‚¹å‡»å¼€å§‹ï¼Œåˆ™ç»˜åˆ¶ç‚¹å‡»æ•ˆæœ
 				if(MouseInCircle(pt_cir.x,pt_cir.y,60,m.x,m.y))
 				{
 					setlinecolor(color_bk);
@@ -261,26 +261,26 @@ void Welcome()
 }
 
 /**
- * Ñ¡Ôñ¹Ø¿¨½çÃæ»æÖÆ
+ * é€‰æ‹©å…³å¡ç•Œé¢ç»˜åˆ¶
  */
 void ChooseGradePaint()
 {
-	// ÉèÖÃ±³¾°É«
+	// è®¾ç½®èƒŒæ™¯è‰²
 	setbkcolor(color_bk);
 	cleardevice();
 	setlinecolor(color_circleButton);
 	setfillcolor(color_circleButton);
 	fillcircle(50,50,30);
-	// ÉèÖÃ×ÖÌåÑÕÉ«
+	// è®¾ç½®å­—ä½“é¢œè‰²
 	settextcolor(color_bk);
 	setbkmode(TRANSPARENT);
 	RECT r = {20,20,80,80};
 
-	settextstyle(55, 0, _T("ËÎÌå"),0,0,FW_HEAVY,false,false,false);
-	// »æÖÆ·µ»ØÉÏÒ»¼¶
+	settextstyle(55, 0, _T("å®‹ä½“"),0,0,FW_HEAVY,false,false,false);
+	// ç»˜åˆ¶è¿”å›ä¸Šä¸€çº§
 	drawtext(_T("<"), &r, DT_CENTER | DT_VCENTER | DT_SINGLELINE);
 
-	// »æÖÆ¹ØÓÚ
+	// ç»˜åˆ¶å…³äº
 	fillcircle(490-50,50,30);
 	RECT r5 = {440-30,20,470,80};
 
@@ -289,28 +289,28 @@ void ChooseGradePaint()
 	setfillcolor(color_grade_bk);
 	setlinecolor(color_grade_bk);
 	
-	// »æÖÆ·ÖÊı
+	// ç»˜åˆ¶åˆ†æ•°
 	fillroundrect(165,25,325,75,30,30);
 	RECT r4 = {165,20,325,80};
-	settextstyle(50, 0, _T("ËÎÌå"));
+	settextstyle(50, 0, _T("å®‹ä½“"));
 
-	// ÏÔÊ¾·ÖÊı
+	// æ˜¾ç¤ºåˆ†æ•°
 	if(g_iGrade==0)
 	{
-		// ĞèÒª´ÓÅäÖÃÎÄ¼şÖĞ¶ÁÈ¡Ò»´Î
+		// éœ€è¦ä»é…ç½®æ–‡ä»¶ä¸­è¯»å–ä¸€æ¬¡
 		g_iGrade = GetPrivateProfileInt(_T("Grade"), _T("grade"), 0, _T(".\\game.ini"));
 	}
-	// ×ª»¯Îª×Ö·û´®²¢ÏÔÊ¾
+	// è½¬åŒ–ä¸ºå­—ç¬¦ä¸²å¹¶æ˜¾ç¤º
 	char str[8];
 	sprintf(str,"%d",g_iGrade);
 	drawtext(str, &r4, DT_CENTER | DT_VCENTER | DT_SINGLELINE);
 
 	setorigin(30,135);
 	fillroundrect(-10,-15,440,445,20,20);
-	settextstyle(35, 0, _T("ËÎÌå"));
+	settextstyle(35, 0, _T("å®‹ä½“"));
 	
 	int i,t;
-	// »æÖÆ
+	// ç»˜åˆ¶
 	for(t=0; t<5; t++) 
 	{
 		for(i=0; i<5; i++)
@@ -319,7 +319,7 @@ void ChooseGradePaint()
 			int temp2 = t*80+t*8;
 			int a = t*5+i+1;
 			
-			// Î´¼¤»îµÄ¹Ø¿¨
+			// æœªæ¿€æ´»çš„å…³å¡
 			if(g_iGrade+100<a*100)
 			{
 				putimage(temp1,temp2,&g_imgGradeLock);
@@ -327,7 +327,7 @@ void ChooseGradePaint()
 			else
 			{
 				putimage(temp1,temp2,&g_imgGradeItem);
-				// ÏÔÊ¾¹Ø¿¨
+				// æ˜¾ç¤ºå…³å¡
 				RECT r = {temp1,temp2,temp1+80,temp2+80};
 				char str[8];
 				sprintf(str,"%d",a);
@@ -340,47 +340,47 @@ void ChooseGradePaint()
 }
 
 /**
- * Ñ¡Ôñ¹Ø¿¨
+ * é€‰æ‹©å…³å¡
  */
 int ChooseGrade()
 {
-	// ¼àÌıµã»÷
+	// ç›‘å¬ç‚¹å‡»
 	FlushMouseMsgBuffer();
 	
-	MOUSEMSG m;		// ¶¨ÒåÊó±êÏûÏ¢
+	MOUSEMSG m;		// å®šä¹‰é¼ æ ‡æ¶ˆæ¯
 	int x,y;
 	int t1,t2;
 	COLORREF color;
 	while(true)
 	{	
-		while (MouseHit())			// µ±ÓĞÊó±êÏûÏ¢µÄÊ±ºòÖ´ĞĞ
+		while (MouseHit())			// å½“æœ‰é¼ æ ‡æ¶ˆæ¯çš„æ—¶å€™æ‰§è¡Œ
 		{
-			// »ñÈ¡Ò»ÌõÊó±êÏûÏ¢
+			// è·å–ä¸€æ¡é¼ æ ‡æ¶ˆæ¯
 			m = GetMouseMsg();
 			switch(m.uMsg)
 			{
 			case WM_LBUTTONDOWN:
-				// ¹ØÓÚ
+				// å…³äº
 				if(MouseInCircle(440,50,30,m.x,m.y))
 				{
-					MessageBox(GetHWnd(),"×÷Õß£º Smileyan\nQQ£º 837764072\nÊÕ»ñÆÄ¶à£¬¸ĞĞ»EasyX!\nÕæĞÄÍÆ¼ö! " , _T("About Line Way"), MB_OKCANCEL); 
+					MessageBox(GetHWnd(),"ä½œè€…ï¼š Smileyan\nQQï¼š 837764072\næ”¶è·é¢‡å¤šï¼Œæ„Ÿè°¢EasyX!\nçœŸå¿ƒæ¨è! " , _T("About Line Way"), MB_OKCANCEL); 
 					break;
 				}
 
-				// ·µ»ØÉÏÒ»¼¶
+				// è¿”å›ä¸Šä¸€çº§
 				if(MouseInCircle(50,50,30,m.x,m.y))
 				{
 					return -1;
 				}
 
-				//ÅĞ¶ÏÊÇ·ñµã»÷ÔÚ¿Õ°×´¦
+				//åˆ¤æ–­æ˜¯å¦ç‚¹å‡»åœ¨ç©ºç™½å¤„
 				color = getpixel(m.x,m.y);
 				if(m.x > 460 || m.x < 40 || m.y > 570 || m.y < 120)
 				{
 					break;
 				}
 
-				// ¼ÆËã
+				// è®¡ç®—
 				x = m.x - 30;
 				t1 = x / 80;
 				x = x - t1 * 8;
@@ -388,16 +388,16 @@ int ChooseGrade()
 				t2 = y / 80;
 				y -= t2 * 8;
 
-				// ¼ÆËã
+				// è®¡ç®—
 				if(x > 0 && y > 0)
 				{
 					t1 = x/80;
 					t2 = y/80;
 					int witch = t1 + 1 + t2 * 5;
-					// Ô½¼¶Ñ¡Ôñ
+					// è¶Šçº§é€‰æ‹©
 					if(witch*100-100>g_iGrade)
 					{
-						MessageBox(GetHWnd(),"ÄúµÄ»ı·Ö²»×ãÍæ´ËµÈ¼¶ÓÎÏ·£¬Çë°´Ë³ĞòÒÀ´ÎÍ¨¹Ø£¡" , _T("ÌáÊ¾"), MB_OKCANCEL);
+						MessageBox(GetHWnd(),"æ‚¨çš„ç§¯åˆ†ä¸è¶³ç©æ­¤ç­‰çº§æ¸¸æˆï¼Œè¯·æŒ‰é¡ºåºä¾æ¬¡é€šå…³ï¼" , _T("æç¤º"), MB_OKCANCEL);
 						break; 
 					}
 					return witch;
@@ -413,9 +413,9 @@ int ChooseGrade()
 }
 
 /**
- * ÅĞ¶Ï(x,y)ÊÇ²»ÊÇÔÚÔ²ÄÚ
- * (rx,ry)±íÊ¾Ô²ĞÄ
- * r±íÊ¾°ë¾¶
+ * åˆ¤æ–­(x,y)æ˜¯ä¸æ˜¯åœ¨åœ†å†…
+ * (rx,ry)è¡¨ç¤ºåœ†å¿ƒ
+ * rè¡¨ç¤ºåŠå¾„
  */
 bool MouseInCircle(int rx,int ry,int r, int x, int y)
 {
@@ -428,22 +428,22 @@ bool MouseInCircle(int rx,int ry,int r, int x, int y)
 }
 
 /**
- * ÓÎÏ·³õÊ¼»¯£¬Ö÷Òª°üÀ¨½çÃæµÄ»æÖÆºÍÓÎÏ·ÅäÖÃÎÄ¼şÊı¾İµÄ¶ÁÈ¡
+ * æ¸¸æˆåˆå§‹åŒ–ï¼Œä¸»è¦åŒ…æ‹¬ç•Œé¢çš„ç»˜åˆ¶å’Œæ¸¸æˆé…ç½®æ–‡ä»¶æ•°æ®çš„è¯»å–
  */
 void GameInit(int grade)
 {
-	// ÉèÖÃ±³¾°É«
+	// è®¾ç½®èƒŒæ™¯è‰²
 	setbkcolor(color_bk);
 	cleardevice();
 	setlinecolor(color_circleButton);
 	setfillcolor(color_circleButton);
 	fillcircle(50,50,30);
-	// ÉèÖÃ×ÖÌåÑÕÉ«
+	// è®¾ç½®å­—ä½“é¢œè‰²
 	settextcolor(color_bk);
 	setbkmode(TRANSPARENT);
 	RECT r = {20,20,80,80};
-	settextstyle(55, 0, _T("ËÎÌå"));
-	// »æÖÆ·µ»ØÉÏÒ»¼¶
+	settextstyle(55, 0, _T("å®‹ä½“"));
+	// ç»˜åˆ¶è¿”å›ä¸Šä¸€çº§
 	drawtext(_T("<"), &r, DT_CENTER | DT_VCENTER | DT_SINGLELINE);
 	
 	fillcircle(440,50,30);
@@ -453,11 +453,11 @@ void GameInit(int grade)
 	line(460,40,455,50);
 	line(460,40,465,50);
 
-	// »æÖÆ·ÖÊı
+	// ç»˜åˆ¶åˆ†æ•°
 	fillroundrect(165,25,325,75,30,30);
 	RECT r4 = {165,20,325,80};
 	
-	// ÏÔÊ¾¹Ø¿¨
+	// æ˜¾ç¤ºå…³å¡
 	char str[8];
 	sprintf(str,"%d",grade);
 	drawtext(str, &r4, DT_CENTER | DT_VCENTER | DT_SINGLELINE);
@@ -469,7 +469,7 @@ void GameInit(int grade)
 		sprintf(swit,"%d",(t+1));
 		char str1[18] = "";
 		GetPrivateProfileString(str, swit, _T("111111"),str1,10,_T(".\\game.ini"));
-		// Ğ´Èëµ½È«¾Ö±äÁ¿ÖĞ
+		// å†™å…¥åˆ°å…¨å±€å˜é‡ä¸­
 		for(int i=0; i<6; i++)
 		{
 			g_aryMap[t][i] = str1[i] - 48;			
@@ -480,7 +480,7 @@ void GameInit(int grade)
 }
 
 /**
- * ÓÎÏ·Ö÷½çÃæµÄ»æÖÆ
+ * æ¸¸æˆä¸»ç•Œé¢çš„ç»˜åˆ¶
  */ 
 void GamePaint()
 {
@@ -513,32 +513,32 @@ void GamePaint()
 }
 
 /**
- * ÓÎÏ·
+ * æ¸¸æˆ
  */ 
 int Game(int grade)
 {
-	// ¼àÌıµã»÷
+	// ç›‘å¬ç‚¹å‡»
 	FlushMouseMsgBuffer();
 	int x,y;
-	MOUSEMSG m;		// ¶¨ÒåÊó±êÏûÏ¢
+	MOUSEMSG m;		// å®šä¹‰é¼ æ ‡æ¶ˆæ¯
 	COLORREF color;
 	setorigin(30,100);
 	while(true)
 	{	
-		while (MouseHit())			// µ±ÓĞÊó±êÏûÏ¢µÄÊ±ºòÖ´ĞĞ
+		while (MouseHit())			// å½“æœ‰é¼ æ ‡æ¶ˆæ¯çš„æ—¶å€™æ‰§è¡Œ
 		{ 
-			// »ñÈ¡Ò»ÌõÊó±êÏûÏ¢
+			// è·å–ä¸€æ¡é¼ æ ‡æ¶ˆæ¯
 			m = GetMouseMsg();
 			switch(m.uMsg)
 			{
 			case WM_LBUTTONDOWN:
-				// ·µ»ØÉÏÒ»¼¶
+				// è¿”å›ä¸Šä¸€çº§
 				if(MouseInCircle(50,50,30,m.x,m.y))
 				{
 					setorigin(0,0);
 					return -1;
 				}
-				// ÖØÖÃ
+				// é‡ç½®
 				if(MouseInCircle(440,50,30,m.x,m.y))
 				{
 					setorigin(0,0);
@@ -554,7 +554,7 @@ int Game(int grade)
 					x = 65*x+10+x*2;
 					y = 65*y+10+y*2; 
 			
-					// ÅĞ¶ÏÊÇ·ñÓëµ±Ç°¸ñ×ÓÏàÁÚ
+					// åˆ¤æ–­æ˜¯å¦ä¸å½“å‰æ ¼å­ç›¸é‚»
 					POINT now = GetNowPoint();
 					if(JudgeBorder(now,pt)) 
 					{
@@ -573,10 +573,10 @@ int Game(int grade)
 	}
 }
 
-//ÅĞ¶ÏÊÇÄÄ¸ö¸ñ×Ó
+//åˆ¤æ–­æ˜¯å“ªä¸ªæ ¼å­
 POINT GetGird(int x, int y)
 {
-	// ¼ÆËã
+	// è®¡ç®—
 	x -= 10;
 	y -= 10;
 	int temp1 = x/65;	
@@ -590,7 +590,7 @@ POINT GetGird(int x, int y)
 }
 
 /**
- * ÅĞ¶ÏÊ¤Àû
+ * åˆ¤æ–­èƒœåˆ©
  *
  */
 bool JudgeWin()
@@ -609,7 +609,7 @@ bool JudgeWin()
 }
 
 /**
- * »ñµÃµ±Ç°µã
+ * è·å¾—å½“å‰ç‚¹
  */
 POINT GetNowPoint()
 {
@@ -629,7 +629,7 @@ POINT GetNowPoint()
 }
 
 /**
- * ÅĞ¶ÏÁ½µãÊÇ·ñÏàÁÚ
+ * åˆ¤æ–­ä¸¤ç‚¹æ˜¯å¦ç›¸é‚»
  */
 bool JudgeBorder(POINT pt1,POINT pt2)
 {
