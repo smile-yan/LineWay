@@ -1,5 +1,5 @@
 # LineWay
-windows系统桌面小游戏—— 一笔画，玩家用鼠标绘制路径，把界面中空白部分填满即可。
+windows系统桌面小游戏—— 一笔画，玩家移动鼠标绘制路径，把界面中空白部分填满即可。
 
 ### 1. 效果展示
 ![qf3 70yy oi jmx34gs 5o](https://user-images.githubusercontent.com/42087739/53140154-d1bafc80-35c6-11e9-81fd-a0584a1dad1e.png)
