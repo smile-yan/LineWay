@@ -27,6 +27,10 @@ EasyX官网：[https://www.easyx.cn/](https://www.easyx.cn/)
 ### 4. 欢迎交流
 QQ: 837764072 
 
+QQ群：46612969 
+
+加群注意事项：[https://www.easyx.cn/readme/view.aspx?id=37](https://www.easyx.cn/readme/view.aspx?id=37)
+
 GitHub: [https://github.com/smile-yan](https://github.com/smile-yan)
 
 > Smileyan 2019年2月14日
