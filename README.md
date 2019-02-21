@@ -11,7 +11,7 @@ windows系统桌面小游戏—— 一笔画，玩家用鼠标绘制路径，把
 ### 2. 环境说明
 运行环境： windows系统
 
-编写环境： Vitual C++ 6.0 + EasyX(20180727)
+编写环境： Vitual C++ 6.0 + EasyX(20190219)
 
 可执行文件下载：[https://github.com/smile-yan/LineWay/releases/download/LineWay(20190220)/LineWay.20190220.7z](https://github.com/smile-yan/LineWay/releases/download/LineWay(20190220)/LineWay.20190220.7z)
 
