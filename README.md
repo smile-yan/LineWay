@@ -1,9 +1,5 @@
 # LineWay
 
-<svg xmlns="http://www.w3.org/2000/svg" version="1.1">
-  <rect x="50" y="20" rx="20" ry="20" width="150" height="50" style="fill:red;stroke:black;stroke-width:5;opacity:0.5" />
-</svg>
-
 Line Way 是一个简单有趣的一笔画游戏。
 玩家只需要用鼠标移动到方格上，使游戏角色将所有路径走遍即可过关。
 
@@ -19,7 +15,7 @@ Line Way 是一个简单有趣的一笔画游戏。
 
 编写环境： Vitual C++ 6.0 + EasyX(20190219)
 
-可执行文件下载：[https://github.com/smile-yan/LineWay/releases/download/LineWay(20190220)/LineWay.20190220.7z](https://github.com/smile-yan/LineWay/releases/download/LineWay(20190220)/LineWay.20190220.7z)
+可执行文件下载：[<kbd>下载</kbd>](https://github.com/smile-yan/LineWay/releases/download/LineWay(20190220)/LineWay.20190220.7z)
 
 ### 3. 感谢
 感谢慢羊羊村长的指导！非常感谢！
