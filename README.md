@@ -1,4 +1,9 @@
 # LineWay
+
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1">
+  <rect x="50" y="20" rx="20" ry="20" width="150" height="50" style="fill:red;stroke:black;stroke-width:5;opacity:0.5" />
+</svg>
+
 Line Way 是一个简单有趣的一笔画游戏。
 玩家只需要用鼠标移动到方格上，使游戏角色将所有路径走遍即可过关。
 
