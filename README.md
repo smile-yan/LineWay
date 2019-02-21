@@ -3,6 +3,8 @@
 Line Way 是一个简单有趣的一笔画游戏。
 玩家只需要用鼠标移动到方格上，使游戏角色将所有路径走遍即可过关。
 
+<kbd>版本号：v1.3</kbd>
+<kbd>立即下载:</kbd>
 ### 1. 效果展示
 ![qf3 70yy oi jmx34gs 5o](https://user-images.githubusercontent.com/42087739/53140154-d1bafc80-35c6-11e9-81fd-a0584a1dad1e.png)
 
