@@ -1,7 +1,4 @@
-# LineWay <kbd>版本号：v1.3</kbd>
-
-[<kbd>游戏下载</kbd>](https://github.com/smile-yan/LineWay/releases/download/LineWay(20190220)/LineWay.20190220.7z)
-[<kbd>源码下载</kbd>](https://github.com/smile-yan/LineWay/archive/LineWay(20190220).zip)
+# LineWay <kbd>版本号：v1.3</kbd>  [<kbd>游戏下载</kbd>](https://github.com/smile-yan/LineWay/releases/download/LineWay(20190220)/LineWay.20190220.7z)  [<kbd>源码下载</kbd>](https://github.com/smile-yan/LineWay/archive/LineWay(20190220).zip)
 
 Line Way 是一个简单有趣的一笔画游戏。
 玩家只需要用鼠标移动到方格上，使游戏角色将所有路径走遍即可过关。
