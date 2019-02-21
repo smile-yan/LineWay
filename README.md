@@ -32,6 +32,8 @@ Line Way 是一个简单有趣的一笔画游戏。
 EasyX官网：[https://www.easyx.cn/](https://www.easyx.cn/)
 
 ### 4. 欢迎交流
+相信你一定有非常宝贵的意见或者建议，欢迎留言！
+
 本项目留言: [issue](https://github.com/smile-yan/LineWay/issues)
 
 QQ: 837764072 
@@ -42,4 +44,4 @@ QQ群：46612969
 
 GitHub: [https://github.com/smile-yan](https://github.com/smile-yan)
 
-> Smileyan 2019年2月14日
+> Smileyan 2019年2月21日
