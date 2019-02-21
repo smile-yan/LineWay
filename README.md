@@ -7,7 +7,6 @@
 </div>
 
 
-  
 Line Way 是一个简单有趣的一笔画游戏。
 玩家只需要用鼠标移动到方格上，使游戏角色将所有路径走遍即可过关。
 
@@ -19,11 +18,12 @@ Line Way 是一个简单有趣的一笔画游戏。
 
 ![e q918 yrl lhoc 4 b x3](https://user-images.githubusercontent.com/42087739/53140987-72122080-35c9-11e9-8fae-2bc9c38e30aa.png)
 
-### 2. 环境说明
+### 2. 开发者
 运行环境： windows系统
 
 编写环境： Vitual C++ 6.0 + EasyX(20190219)
 
+项目详细介绍：[https://github.com/smile-yan/LineWay/wiki](https://github.com/smile-yan/LineWay/wiki)
 ### 3. 感谢
 感谢慢羊羊村长的指导！非常感谢！
 
