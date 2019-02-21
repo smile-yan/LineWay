@@ -1,11 +1,9 @@
 # LineWay
 windows系统桌面小游戏
 ### 1. 效果展示
-![welcome](https://github.com/smile-yan/LineWay/blob/master/%E6%95%88%E6%9E%9C%E5%9B%BE/1.png)
+![qf3 70yy oi jmx34gs 5o](https://user-images.githubusercontent.com/42087739/53140154-d1bafc80-35c6-11e9-81fd-a0584a1dad1e.png)
 
-![grade](https://github.com/smile-yan/LineWay/blob/master/%E6%95%88%E6%9E%9C%E5%9B%BE/2.png)
 
-![game](https://github.com/smile-yan/LineWay/blob/master/%E6%95%88%E6%9E%9C%E5%9B%BE/3.png)
 
 ### 2. 环境说明
 运行环境： windows系统
